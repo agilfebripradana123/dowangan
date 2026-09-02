@@ -420,7 +420,3 @@ Project dapat dikembangkan lebih lanjut dengan menambahkan:
 
 This project is for educational and development purposes.
 
-```
-
-Untuk versi GitHub, saya **lebih menyarankan README seperti ini** daripada memasukkan seluruh struktur `vendor/`, karena `vendor/` adalah dependency hasil Composer dan membuat README terlihat sangat panjang. Struktur sumber utama saja sudah cukup.
-```
