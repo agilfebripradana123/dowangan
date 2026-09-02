@@ -1,61 +1,426 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Dowangan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> Aplikasi web untuk pengelolaan data dan konten berbasis Laravel dengan sistem autentikasi dan manajemen akses pengguna.
 
-## About Laravel
+## 📌 Tentang Aplikasi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Dowangan** adalah aplikasi web yang menyediakan sistem pengelolaan data, konten, pengguna, dan profil melalui dashboard administrasi.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aplikasi ini memiliki sistem autentikasi serta pembatasan akses berdasarkan role pengguna. Struktur aplikasi dipisahkan menggunakan controller, model, middleware, request validation, Blade view, migration, dan seeder sehingga lebih mudah dikembangkan dan dipelihara.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Project ini juga menyediakan fitur export data dan memiliki halaman publik serta dashboard admin.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ✨ Fitur
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 🔐 Authentication
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Login pengguna
+* Registration
+* Email verification
+* Password reset
+* Password confirmation
+* Update password
+* Session authentication
 
-## Laravel Sponsors
+### 👤 User Management
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* Manajemen pengguna
+* Role-based access
+* Admin authentication
+* Update profile
+* Pengelolaan informasi pengguna
 
-### Premium Partners
+### 📊 Data Management
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+* Menampilkan data
+* Menambahkan data
+* Mengubah data
+* Menghapus data
+* Export data
 
-## Contributing
+### 📝 Content Management
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Menampilkan daftar konten
+* Membuat konten
+* Mengedit konten
+* Mengelola konten melalui dashboard
+* Pengelolaan konten pemuda
 
-## Code of Conduct
+### 📈 Dashboard
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* Dashboard administrator
+* Ringkasan data
+* Navigasi berdasarkan hak akses pengguna
 
-## Security Vulnerabilities
+### 🛡️ Access Control
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Aplikasi menggunakan middleware untuk mengatur akses pengguna, termasuk:
 
-## License
+* `AdminAuth`
+* `AdminMiddleware`
+* `RoleMiddleware`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* PHP
+* Laravel
+* Blade Template Engine
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
+* SCSS
+* jQuery
+* Font Awesome
+
+### Database
+
+* SQLite / Database sesuai konfigurasi environment
+
+### Development Tools
+
+* Composer
+* NPM
+* Vite
+* PHPUnit
+* Git
+
+Project menggunakan Blade views dan memiliki konfigurasi frontend melalui `vite.config.js`, `postcss.config.js`, serta `tailwind.config.js`.
+
+---
+
+## 📂 Project Structure
+
+```text
+dowangan/
+│
+├── app/
+│   ├── Exports/
+│   │   └── DataExport.php
+│   │
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── AdminController.php
+│   │   │   ├── AuthController.php
+│   │   │   ├── ContentController.php
+│   │   │   ├── DataController.php
+│   │   │   ├── ProfileController.php
+│   │   │   └── UserController.php
+│   │   │
+│   │   ├── Middleware/
+│   │   │   ├── AdminAuth.php
+│   │   │   ├── AdminMiddleware.php
+│   │   │   └── RoleMiddleware.php
+│   │   │
+│   │   └── Requests/
+│   │       ├── Auth/
+│   │       │   └── LoginRequest.php
+│   │       └── ProfileUpdateRequest.php
+│   │
+│   ├── Models/
+│   │   ├── Content.php
+│   │   ├── Data.php
+│   │   └── User.php
+│   │
+│   └── View/
+│       └── Components/
+│
+├── bootstrap/
+│
+├── config/
+│   ├── app.php
+│   ├── auth.php
+│   ├── database.php
+│   ├── mail.php
+│   └── session.php
+│
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+│
+├── public/
+│   ├── images/
+│   ├── template/
+│   └── index.php
+│
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/
+│       ├── admin/
+│       ├── auth/
+│       ├── components/
+│       ├── layout/
+│       ├── profile/
+│       └── user/
+│
+├── routes/
+│   ├── auth.php
+│   ├── console.php
+│   └── web.php
+│
+├── storage/
+│
+├── tests/
+│   ├── Feature/
+│   └── Unit/
+│
+├── composer.json
+├── package.json
+├── vite.config.js
+├── phpunit.xml
+└── README.md
+```
+
+Struktur utama tersebut berasal dari project yang memiliki controller untuk admin, authentication, content, data, profile, dan user, serta model `Content`, `Data`, dan `User`.
+
+---
+
+## ⚙️ Requirements
+
+Pastikan environment sudah memiliki:
+
+* PHP
+* Composer
+* Node.js & NPM
+* Database
+* Git
+
+Versi spesifik PHP, Node.js, dan database mengikuti konfigurasi `composer.json`, `package.json`, dan environment project.
+
+---
+
+## 🚀 Installation
+
+### 1. Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+Masuk ke folder project:
+
+```bash
+cd dowangan
+```
+
+### 2. Install PHP Dependencies
+
+```bash
+composer install
+```
+
+### 3. Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+### 4. Setup Environment
+
+Copy file environment:
+
+```bash
+cp .env.example .env
+```
+
+Untuk Windows:
+
+```powershell
+copy .env.example .env
+```
+
+Kemudian sesuaikan konfigurasi database pada `.env`.
+
+### 5. Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### 6. Setup Database
+
+Jalankan migration:
+
+```bash
+php artisan migrate
+```
+
+Jika project menggunakan data awal dari seeder:
+
+```bash
+php artisan db:seed
+```
+
+Atau:
+
+```bash
+php artisan migrate --seed
+```
+
+Project memiliki migration untuk users, cache, jobs, data, contents, role, dan username, serta menyediakan beberapa database seeder termasuk `AdminUserSeeder` dan `UserSeeder`.
+
+### 7. Build Frontend
+
+Untuk development:
+
+```bash
+npm run dev
+```
+
+Untuk production:
+
+```bash
+npm run build
+```
+
+### 8. Jalankan Laravel
+
+```bash
+php artisan serve
+```
+
+Aplikasi dapat diakses melalui:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## 🧪 Testing
+
+Project menyediakan Feature Test dan Unit Test, termasuk test untuk authentication, email verification, password confirmation, password reset, password update, registration, dan profile.
+
+Jalankan test dengan:
+
+```bash
+php artisan test
+```
+
+---
+
+## 🔑 Authentication & Authorization
+
+Aplikasi menerapkan authentication dan role-based authorization.
+
+Struktur middleware:
+
+```text
+AdminAuth
+AdminMiddleware
+RoleMiddleware
+```
+
+Dengan pendekatan tersebut, akses halaman atau fitur tertentu dapat dibatasi berdasarkan status autentikasi dan role pengguna.
+
+---
+
+## 🗄️ Database
+
+Database dikelola menggunakan Laravel Migration.
+
+Migration utama meliputi:
+
+```text
+users
+cache
+jobs
+data
+contents
+roles
+username
+```
+
+Seeder tersedia untuk membuat data awal pengguna dan administrator.
+
+---
+
+## 📤 Data Export
+
+Aplikasi memiliki class:
+
+```text
+app/Exports/DataExport.php
+```
+
+yang digunakan sebagai bagian dari mekanisme export data.
+
+---
+
+## 🎨 Interface
+
+Dashboard menggunakan template berbasis Bootstrap dengan dukungan:
+
+* Bootstrap
+* SCSS
+* jQuery
+* DataTables
+* Chart.js
+* Font Awesome
+
+Asset template tersedia di:
+
+```text
+public/template/
+```
+
+dan mencakup komponen CSS, JavaScript, DataTables, Chart.js, Bootstrap, serta Font Awesome.
+
+---
+
+## 🧭 Application Modules
+
+Secara umum aplikasi terbagi menjadi beberapa modul:
+
+```text
+Authentication
+      │
+      ├── Login
+      ├── Registration
+      ├── Password Management
+      └── Email Verification
+      │
+      ▼
+Dashboard
+      │
+      ├── Data Management
+      ├── Content Management
+      ├── User Management
+      ├── Profile
+      └── Data Export
+```
+
+---
+
+## 🔮 Development
+
+Project dapat dikembangkan lebih lanjut dengan menambahkan:
+
+* Modul baru melalui Controller dan Model
+* Middleware untuk kebutuhan authorization
+* Form Request untuk validasi
+* Blade Component untuk UI yang reusable
+* Migration dan Seeder untuk kebutuhan database
+* Feature Test dan Unit Test untuk menjaga kualitas aplikasi
+
+---
+
+## 📄 License
+
+This project is for educational and development purposes.
+
+```
+
+Untuk versi GitHub, saya **lebih menyarankan README seperti ini** daripada memasukkan seluruh struktur `vendor/`, karena `vendor/` adalah dependency hasil Composer dan membuat README terlihat sangat panjang. Struktur sumber utama saja sudah cukup.
+```
